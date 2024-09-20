@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #a8e0e0, #f0f9ff);
+    color: #333;
+    text-align: center
+}
+
+
+header {
+    padding: 50px;
+    background-color: #2e8b57;
+    color: white;
+    border-bottom: 5px solid #1e5c3b;
+    text-align: center
+}
+
+h1 {
+    font-family: cursive;
+    margin: 0;
+    text-align: center
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.feature-circle {
+    background: #6fa3d9;
+    border-radius: 50%;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.signup {
+    text-align: center;
+    padding: 30px;
+}
+
+button {
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #1e5c3b;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2e8b57;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
