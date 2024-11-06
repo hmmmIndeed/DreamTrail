@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Right now, all that we have is a semi-functional backend
 but no frontend. The frontend is being planned in react
 as the MERN stack will help us put all of this together.
@@ -16,4 +17,24 @@ all have some sort of say in the design of our project.
 The backend is able to send requests (watch video series in discord
 and download postman to test) but patch requests are not able to send
 to the database, these requests update data in the database which 
+=======
+Right now, all that we have is a semi-functional backend
+but no frontend. The frontend is being planned in react
+as the MERN stack will help us put all of this together.
+
+Please reach out if there are any descrepancies or confusing
+bits of code in this push. The current html,css,and script.js
+files are subject to change so that we can create them in react.
+
+The frontend should be simple, easy to navigate, with near-
+minimal amount of components. It should have a blue to green gradient
+to induce calmness, standard but unique website layout. Before 
+committing changes, commit to the 'Stable' branch and let other
+group memebrs see before changing frontend elements. We should 
+all have some sort of say in the design of our project. 
+
+The backend is able to send requests (watch video series in discord
+and download postman to test) but patch requests are not able to send
+to the database, these requests update data in the database which 
+>>>>>>> 39565a9c0400436732ade2bbe750a3ea76a1c2cd
 can be adding new data but also be 
