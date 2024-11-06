@@ -10,7 +10,7 @@ const TrailForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const trail = {title,duration,time}
+        const trail = {date,duration,quality}
 
         const response = await fetch('/api/trails',{
             method: 'POST',
