@@ -21,7 +21,7 @@ const Schema = mongoose.Schema
 //but it should not be able to be easily abused
 
 const trailSchema = new Schema({
-    title:{
+    date:{
         type: String,
         required: true
     },
@@ -29,7 +29,7 @@ const trailSchema = new Schema({
         type: Number,
         required: true
     },
-    time: {
+    quality: {
         type: Number,
         required: true
     }
