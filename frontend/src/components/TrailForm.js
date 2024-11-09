@@ -34,6 +34,10 @@ const TrailForm = () => {
             setQuality('')
             setError(null)
             console.log('New trail added', json)
+
+            // Refresh the page by replacing the URL with itself
+            window.location.replace(window.location.href)
+
         }
 
         catch (error) {
