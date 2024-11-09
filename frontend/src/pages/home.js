@@ -11,7 +11,7 @@ const Home = () => {
 
 
             if(response.ok) {
-                setTrails(json.trail)
+                setTrails(json)
             }
         }
 
