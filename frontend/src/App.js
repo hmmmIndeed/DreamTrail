@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import Home from './pages/home'
+import StatsPage from './pages/StatsPage'
 import Navbar from './components/Navbar'
 
 function App() {
@@ -13,7 +14,11 @@ function App() {
             <Route
               path = "/"
               element = {<Home />}
-            />  
+            />
+            <Route
+              path = "/stats"
+              element = {<StatsPage />}
+            />
           </Routes>
         </div>
       </BrowserRouter>
