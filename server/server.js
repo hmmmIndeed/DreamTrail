@@ -32,7 +32,7 @@ app.get("/:universalURL", (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log("listening on http://localhost:4000");
+    console.log("Listening on http://localhost:4000");
 })
 
 
