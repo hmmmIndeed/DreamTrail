@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import { KHR_DF_SAMPLE_DATATYPE_SIGNED } from 'three/examples/jsm/libs/ktx-parse.module.js'
+// import { KHR_DF_SAMPLE_DATATYPE_SIGNED } from 'three/examples/jsm/libs/ktx-parse.module.js'
 const TrailForm = () => {
     const [date, setDate] = useState('')
     const [duration, setDuration] = useState('')
@@ -10,30 +10,39 @@ const TrailForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const trail = {date,duration,quality}
+        const trail = { date, duration, quality }
 
-        const response = await fetch('/api/trails',{
-            method: 'POST',
-            body: JSON.stringify(trail),
-            headers: {
-                'Content-Type': 'aplication.json'
+        try {
+            const response = await fetch('http://localhost:4000/api/trails', {
+                method: 'POST',
+                body: JSON.stringify(trail),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            if (!response.ok) {
+                const errorText = await response.text()
+                console.log("Error details:", errorText)
+                setError(json.error)
+                return
             }
-        })
-        const json = await response.json()
 
-        if (!response.ok) {
-            setError(json.error)
-        }
-        if(response.ok) {
+            const json = await response.json()
             setDate('')
             setDuration('')
             setQuality('')
             setError(null)
-            console.log('new workout added', json)
+            console.log('New trail added', json)
+        }
+
+        catch (error) {
+            console.error("Request failed:", error)
+            setError("An error occurred while submitting the form.")
         }
     }
 
-
+    // This section displays the form that takes input from the user.
     return (
         <form className='create' onSubmit={handleSubmit}>
             <h3> Add a new Trail</h3>
