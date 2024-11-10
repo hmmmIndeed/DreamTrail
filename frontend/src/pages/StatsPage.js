@@ -1,8 +1,35 @@
+import {useEffect, useState} from 'react'
+
+import TrailGraph from '../components/TrailGraph';
+
+
+
 const StatsPage = () => {
+    const [trails, setTrails] = useState([])
+
+    // Fetch the user's trails from the server
+    useEffect(() => {
+        const fetchTrails = async () => {
+            const response = await fetch('http://localhost:4000/api/trails')
+            const json = await response.json()
+
+            if (response.ok) {
+                setTrails(json)
+            }
+        }
+
+            fetchTrails()
+    }, [])
+
+
     return(
         <div className = "StatsPage">
-            <h1>What the actual frick bro?</h1>
-            <p>I have no idea what's going on.</p>
+            <h1>Let's look at the Stats!</h1>
+            <p>Here you can view your sleeping patterns over time:</p>
+            <small>(Notice how sleep quality changes with sleep duration)</small>
+            <br></br>
+            <br></br>
+            <TrailGraph trails={trails} />
         </div>
     )
 }
