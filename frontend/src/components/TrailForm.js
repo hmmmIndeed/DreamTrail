@@ -1,7 +1,10 @@
 import {useState} from 'react'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 // import { KHR_DF_SAMPLE_DATATYPE_SIGNED } from 'three/examples/jsm/libs/ktx-parse.module.js'
 const TrailForm = () => {
-    const [date, setDate] = useState('')
+    //const [date, setDate] = useState('')
+    const [date, setDate] = useState(new Date())
     const [duration, setDuration] = useState('')
     const [quality, setQuality] = useState('')
 
@@ -10,7 +13,11 @@ const TrailForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const trail = { date, duration, quality }
+        // Convert the date to local midnight to avoid timezone offset issues
+        const localDate = new Date(date)
+        localDate.setHours(0, 0, 0, 0)
+
+        const trail = { date: localDate, duration, quality }
 
         try {
             const response = await fetch('http://localhost:4000/api/trails', {
@@ -29,7 +36,7 @@ const TrailForm = () => {
             }
 
             const json = await response.json()
-            setDate('')
+            setDate(new Date())
             setDuration('')
             setQuality('')
             setError(null)
@@ -52,10 +59,10 @@ const TrailForm = () => {
             <h3> Add a new Trail</h3>
 
             <label>Sleep Date</label>
-            <input
-                type="text"
-                onChange={(e) => setDate(e.target.value)}
-                value={date}
+            <DatePicker
+                selected={date.toLocaleDateString()}
+                onChange={(newDate) => setDate(newDate)}
+                dateFormat="MM/dd/yyyy"
             />
             <label>Duration</label>
             <input
