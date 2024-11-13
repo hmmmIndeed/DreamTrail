@@ -10,7 +10,7 @@ const StatsPage = () => {
     // Fetch the user's trails from the server
     useEffect(() => {
         const fetchTrails = async () => {
-            const response = await fetch('http://localhost:4000/api/trails')
+            const response = await fetch('http://localhost:5000/api/trails')
             const json = await response.json()
 
             if (response.ok) {
